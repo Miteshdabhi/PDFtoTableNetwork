@@ -18,7 +18,7 @@ def submit():
             report_dates.append(today)
     deliveroo_data['NewDate'] = report_dates
     df = pd.pivot_table(deliveroo_data,values='Subtotal',index='NewDate',columns=['Restaurant Name'],aggfunc=np.sum).fillna("")
-    df.to_excel(output_name + '.xlsx')
+    df.to_csv(output_name + '.csv')
 
 file_path = st.file_uploader("Select a file", type=["csv"])
 output_name = st.text_input("Output file name:")
